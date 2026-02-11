@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "/logo-ufcspl.png";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,7 +24,7 @@ export default function Navbar() {
          <div className="flex-shrink-0 flex items-center space-x-2 max-w-full">
   <Link href="/" className="flex items-center space-x-2">
     <img 
-      src="/logo-ufcspl.png" 
+      src={logo}
       alt="Ultimate Freight & Cargo Logo" 
       className="h-10 sm:h-14 md:h-16 lg:h-12 w-auto"
     />
