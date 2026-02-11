@@ -1,0 +1,209 @@
+import { Helmet } from "react-helmet";
+import CTASection from "@/components/sections/CTASection";
+
+export default function AboutPage() {
+  return (
+    <>
+      <Helmet>
+        <title>About Us - Ultimate Freight and Cargo Shippers</title>
+        <meta name="description" content="Learn about Ultimate Freight and Cargo Shippers, our history, mission, values, and the team behind our global logistics solutions." />
+      </Helmet>
+      
+      <main>
+        {/* Hero Section */}
+        <section className="bg-primary text-white py-16 md:py-24">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">About Ultimate Freight & Cargo</h1>
+              <p className="text-lg md:text-xl text-neutral-100">
+                Your trusted partner in global logistics since 2005. We connect businesses to opportunities worldwide through innovative shipping solutions.
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        {/* Our Story Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800 mb-6">Our Story</h2>
+                <p className="text-neutral-600 mb-4">
+                  Ultimate Freight & Cargo was founded in 2005 with a simple mission: to make global shipping accessible, reliable, and efficient for businesses of all sizes.
+                </p>
+                <p className="text-neutral-600 mb-4">
+                  What began as a small operation with just three employees and a single warehouse has grown into a global logistics company with presence in over 120 countries, a fleet of modern vehicles, and partnerships with leading carriers worldwide.
+                </p>
+                <p className="text-neutral-600">
+                  Throughout our journey, we've maintained our core values of reliability, transparency, and customer-first approach, which have earned us the trust of thousands of businesses globally.
+                </p>
+              </div>
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.pexels.com/photos/1095814/pexels-photo-1095814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  alt="Container port with ships and cargo" 
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Mission & Values Section */}
+        <section className="py-16 bg-neutral-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800 mb-4">Our Mission & Values</h2>
+              <p className="max-w-3xl mx-auto text-neutral-600">
+                Our guiding principles shape everything we do, from daily operations to long-term strategic decisions.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-xl font-semibold text-primary mb-4">Our Mission</h3>
+                <p className="text-neutral-600">
+                  To connect businesses with global markets through innovative, reliable, and sustainable logistics solutions that drive growth and success.
+                </p>
+              </div>
+              
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-xl font-semibold text-primary mb-4">Our Vision</h3>
+                <p className="text-neutral-600">
+                  To be the world's most trusted and customer-centric logistics provider, known for excellence, innovation, and environmental responsibility.
+                </p>
+              </div>
+              
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-xl font-semibold text-primary mb-4">Our Values</h3>
+                <ul className="text-neutral-600 space-y-2">
+                  <li>• Reliability in every shipment</li>
+                  <li>• Transparency in operations and pricing</li>
+                  <li>• Customer-centric approach</li>
+                  <li>• Environmental sustainability</li>
+                  <li>• Continuous innovation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Team Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800 mb-4">Our Leadership Team</h2>
+              <p className="max-w-3xl mx-auto text-neutral-600">
+                Meet the experienced professionals who guide our company with vision, expertise, and dedication.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Team Member 1 */}
+              <div className="text-center">
+                <div className="mb-4 rounded-full overflow-hidden inline-block">
+                  <img 
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" 
+                    alt="Robert Chen, CEO" 
+                    className="w-32 h-32 object-cover"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold">Robert Chen</h3>
+                <p className="text-primary font-medium">Chief Executive Officer</p>
+                <p className="text-neutral-600 mt-2">
+                  25+ years of experience in international logistics and supply chain management.
+                </p>
+              </div>
+              
+              {/* Team Member 2 */}
+              <div className="text-center">
+                <div className="mb-4 rounded-full overflow-hidden inline-block">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" 
+                    alt="Sarah Johnson, COO" 
+                    className="w-32 h-32 object-cover"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold">Sarah Johnson</h3>
+                <p className="text-primary font-medium">Chief Operations Officer</p>
+                <p className="text-neutral-600 mt-2">
+                  Former logistics director with expertise in optimizing complex supply chains.
+                </p>
+              </div>
+              
+              {/* Team Member 3 */}
+              <div className="text-center">
+                <div className="mb-4 rounded-full overflow-hidden inline-block">
+                  <img 
+                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80" 
+                    alt="Michael Rodriguez, CTO" 
+                    className="w-32 h-32 object-cover"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold">Michael Rodriguez</h3>
+                <p className="text-primary font-medium">Chief Technology Officer</p>
+                <p className="text-neutral-600 mt-2">
+                  Leads our digital transformation with innovative tracking and management solutions.
+                </p>
+              </div>
+              
+              {/* Team Member 4 */}
+              <div className="text-center">
+                <div className="mb-4 rounded-full overflow-hidden inline-block">
+                  <img 
+                    src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=300&q=80" 
+                    alt="Emma Williams, Global Relations Director" 
+                    className="w-32 h-32 object-cover"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold">Emma Williams</h3>
+                <p className="text-primary font-medium">Global Relations Director</p>
+                <p className="text-neutral-600 mt-2">
+                  Manages our international partnerships and expansion into new markets.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Global Presence Section */}
+        <section className="py-16 bg-neutral-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800 mb-4">Our Global Presence</h2>
+              <p className="max-w-3xl mx-auto text-neutral-600">
+                With operations in over 120 countries, we connect businesses to markets across six continents.
+              </p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">120+</div>
+                  <p className="text-neutral-600">Countries Served</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">250+</div>
+                  <p className="text-neutral-600">Logistics Hubs</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">5,000+</div>
+                  <p className="text-neutral-600">Employees Worldwide</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">10M+</div>
+                  <p className="text-neutral-600">Shipments Annually</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <CTASection />
+      </main>
+    </>
+  );
+}
