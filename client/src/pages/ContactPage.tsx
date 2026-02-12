@@ -128,7 +128,7 @@ export default function ContactPage() {
                       <h3 className="font-semibold text-neutral-800">Head Office</h3>
                       <p className="text-neutral-600">
                         123 Logistics Way, Suite 500<br/>
-                        Global City, NY 10001, USA
+                        New Delhi, Delhi 110092
                       </p>
                     </div>
                   </div>

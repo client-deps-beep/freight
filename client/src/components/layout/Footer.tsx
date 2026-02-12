@@ -67,7 +67,7 @@ export default function Footer() {
                 <MapPin className="h-5 w-5 mt-1 mr-3 text-[#f39c12]" />
                 <span className=" text-neutral-300 text-xs">METROPLEX EAST MALL, UNIT NO. 303, 
                   <br/> THIRD FLOOR, LAXMI NAGAR NEW DELHI – 110092
-                  <br/>Global City, NY 10001, USA</span>
+                  <br/>New Delhi, Delhi 110092</span>
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 mt-1 mr-3 text-[#f39c12]" />

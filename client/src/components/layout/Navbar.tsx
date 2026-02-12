@@ -26,11 +26,11 @@ export default function Navbar() {
     <img 
       src={logo}
       alt="Ultimate Freight & Cargo Logo" 
-      className="h-10 sm:h-14 md:h-16 lg:h-12 w-auto"
+      className="h-10 sm:h-14 md:h-16 lg:h-16 w-auto"
     />
     <div className="text-primary font-bold text-sm sm:text-base md:text-lg lg:text-xl leading-tight">
-      <span className="block text-primary/80">Ultimate</span> 
-      <span className="block">Freight & Cargo Shippers Pvt Ltd</span>
+      <span className="block text-[#085bf5]">Ultimate</span> 
+      <span className="block text-[#085bf5]">Freight & Cargo Shippers Pvt Ltd</span>
     </div>
   </Link>
 </div>
@@ -60,7 +60,7 @@ export default function Navbar() {
                 </a>
               </Link>
               <Link href="/quote">
-                <Button className="bg-primary hover:bg-primary/80 text-white">
+                <Button className="bg-[#085bf5]/80 hover:bg-[#085bf5] text-white">
                   Get a Quote
                 </Button>
               </Link>

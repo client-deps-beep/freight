@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="relative text-white overflow-hidden">
+    <section className="relative text-white overflow-hidden bg-black/40">
       <div className="absolute inset-0 gradient-blend-bg animated-bg opacity-90"></div>
       <div 
         className="absolute inset-0 bg-cover bg-center"
@@ -16,9 +16,9 @@ export default function HeroSection() {
       
       {/* Decorative elements */}
       <div className="absolute top-20 right-[10%] w-64 h-64 bg-white rounded-full opacity-10 blur-3xl"></div>
-      <div className="absolute bottom-20 left-[5%] w-96 h-96 bg-orange-500 rounded-full opacity-10 blur-3xl"></div>
+      <div className="absolute bottom-20 left-[5%] w-96 h-96 bg-orange-500 rounded-full opacity-10 blur-3xl "></div>
       
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 md:py-40">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 md:py-40 ">
         <div className="max-w-3xl relative z-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-lg">
             <span className="text-gradient-primary">Global Logistics</span> <br />
