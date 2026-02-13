@@ -13,9 +13,14 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 function Router() {
+  // Use Vite's BASE_URL so dev runs at "/" and production at the correct base path
+  const rawBase = import.meta.env.BASE_URL || "/";
+  const normalizedBase =
+    rawBase === "/" ? "" : rawBase.replace(/\/+$/, "");
+
   return (
     <div className="flex flex-col min-h-screen">
-     <WouterRouter base="/freight">
+      <WouterRouter base={normalizedBase}>
         <Navbar />
         <div className="flex-1">
           <Switch>

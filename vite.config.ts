@@ -5,7 +5,9 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
-  base:'/freight/',
+  // Use "/" in dev so the app runs at the root,
+  // and "/freight/" in production (e.g. GitHub Pages project path).
+  base: process.env.NODE_ENV === "production" ? "/freight/" : "/",
   plugins: [
     react(),
     runtimeErrorOverlay(),
