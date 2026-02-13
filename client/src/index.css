@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --gradient-primary: linear-gradient(135deg, #4169E1 0%, #4169E1 100%);
-    --gradient-secondary: linear-gradient(135deg, #2B6CB0 0%, #002366 100%);
-    --gradient-blend: linear-gradient(135deg, #2B6CB0 0%, #2B6CB0 100%);
-    --gradient-cta: linear-gradient(135deg, #002366 0%, #4169E1 50%, #2B6CB0 100%);
-    --gradient-dark: linear-gradient(135deg, #1A365D 0%, #2D3748 100%);
-    --shadow-standard: 0 4px 15px rgba(0, 0, 0, 0.1);
-    --shadow-elevated: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+    --gradient-secondary: linear-gradient(135deg, #1e40af 0%, #0284c7 100%);
+    --gradient-blend: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+    --gradient-cta: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #0ea5e9 100%);
+    --gradient-dark: linear-gradient(135deg, #1e3a8a 0%, #0c4a6e 100%);
+    --shadow-standard: 0 4px 15px rgba(37, 99, 235, 0.1);
+    --shadow-elevated: 0 8px 30px rgba(37, 99, 235, 0.15);
   }
   
   * {

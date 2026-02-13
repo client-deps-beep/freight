@@ -5,6 +5,7 @@ import { z } from "zod";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { initEmailJs, sendContactEmail } from "@/lib/emailService";
+import { saveQuery } from "@/lib/storage";
 import {
   Form,
   FormControl,
@@ -58,6 +59,17 @@ export default function ContactPage() {
         throw new Error("Email service not initialized yet. Please try again.");
       }
       
+      // Save query to localStorage
+      saveQuery({
+        type: 'contact',
+        data: {
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message
+        }
+      });
+
       // Prepare template parameters
       const templateParams = {
         from_name: data.name,
@@ -99,11 +111,12 @@ export default function ContactPage() {
       
       <main>
         {/* Hero Section */}
-        <section className="bg-primary text-white py-16 md:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-gradient-to-r from-blue-600 via-sky-600 to-blue-700 text-white py-16 md:py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-sky-500/20"></div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="max-w-3xl">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-              <p className="text-lg md:text-xl text-neutral-100">
+              <p className="text-lg md:text-xl text-blue-50">
                 Have questions about our services? Need a custom shipping solution? Our team is here to help you with all your logistics needs.
               </p>
             </div>
@@ -127,7 +140,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-neutral-800">Head Office</h3>
                       <p className="text-neutral-600">
-                        123 Logistics Way, Suite 500<br/>
+                        METROPLEX EAST MALL, UNIT NO. 303, THIRD FLOOR, LAXMI NAGAR<br/>
                         New Delhi, Delhi 110092
                       </p>
                     </div>
@@ -138,8 +151,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-neutral-800">Phone</h3>
                       <p className="text-neutral-600">
-                        Customer Service: +1 (555) 123-4567<br/>
-                        Sales: +1 (555) 765-4321
+                        Customer Service: +91 82875 82275<br/>
                       </p>
                     </div>
                   </div>
@@ -237,7 +249,7 @@ export default function ContactPage() {
                     
                     <Button 
                       type="submit" 
-                      className="w-full bg-primary hover:bg-primary/80 text-white font-medium py-3"
+                      className="w-full bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 text-white font-medium py-3 shadow-lg"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}

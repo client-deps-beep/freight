@@ -5,12 +5,13 @@ import {
   Plane, 
   Truck, 
   Train, 
- BadgeCheck,
+  BadgeCheck,
   Warehouse, 
   FileSearch, 
   BarChart, 
   PackageOpen 
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ServicesPage() {
   return (
@@ -22,28 +23,40 @@ export default function ServicesPage() {
       
       <main>
         {/* Hero Section */}
-        <section className="bg-primary text-white py-16 md:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+        <section className="bg-gradient-to-r from-blue-600 via-sky-600 to-blue-700 text-white py-16 md:py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-sky-500/20"></div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-3xl"
+            >
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Our Comprehensive Services</h1>
-              <p className="text-lg md:text-xl text-neutral-100">
+              <p className="text-lg md:text-xl text-blue-50">
                 From sea to air, local to global, we offer end-to-end logistics solutions tailored to your business needs.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
         
         {/* Main Services */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" id="ocean-freight">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" id="ocean-freight"
+            >
               <div>
                 <div className="flex items-center mb-4">
-                  <Ship className="h-8 w-8 text-primary mr-3" />
+                  <Ship className="h-8 w-8 text-blue-600 mr-3" />
                   <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800">Ocean Freight</h2>
                 </div>
                 <p className="text-neutral-600 mb-6">
-                  Our ocean freight services offer reliable and cost-effective solutions for shipping goods internationally. Whether you need full container load (FCL) or less than container load (LCL) shipping, we have options to accommodate your specific requirements.
+                  Our ocean freight services offer reliable and cost-effective solutions for shipping goods internationally. We provide comprehensive ocean freight services with access to major shipping lines, competitive rates, and reliable transit times. Our network covers all major ports worldwide, ensuring seamless cargo movement across continents.
                 </p>
                 <div className="space-y-4">
                   <div>
@@ -59,98 +72,214 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neutral-800">Special Equipment</h3>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Special Equipment</h3>
                     <p className="text-neutral-600">
-                      Access to refrigerated containers, open-top containers, flat racks, and other specialized equipment for unique cargo needs.
+                      Access to refrigerated containers, open-top containers, flat racks, and other specialized equipment for unique cargo needs including hazardous materials and oversized loads.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Port-to-Port & Door-to-Door</h3>
+                    <p className="text-neutral-600">
+                      Flexible service options from port-to-port or complete door-to-door solutions with inland transportation coordination.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Real-Time Vessel Tracking</h3>
+                    <p className="text-neutral-600">
+                      Advanced tracking technology providing real-time visibility of your cargo's location throughout the shipping journey.
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="rounded-lg overflow-hidden shadow-lg">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="rounded-lg overflow-hidden shadow-lg"
+              >
                 <img 
                   src="https://images.pexels.com/photos/1427107/pexels-photo-1427107.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                   alt="Ocean freight container ship" 
                   className="w-full h-full object-cover"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" id="air-freight">
-              <div className="order-2 lg:order-1 rounded-lg overflow-hidden shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" id="air-freight"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2 lg:order-1 rounded-lg overflow-hidden shadow-lg"
+              >
                 <img 
                   src="https://images.pexels.com/photos/11192837/pexels-photo-11192837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                   alt="Air freight cargo plane" 
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </motion.div>
               <div className="order-1 lg:order-2">
                 <div className="flex items-center mb-4">
-                  <Plane className="h-8 w-8 text-primary mr-3" />
+                  <Plane className="h-8 w-8 text-blue-600 mr-3" />
                   <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800">Air Freight</h2>
                 </div>
                 <p className="text-neutral-600 mb-6">
-                  When speed is essential, our air freight services provide the fastest transportation option for your cargo. We offer a range of air freight solutions to meet your timeline and budget requirements.
+                  When speed is essential, our air freight services provide the fastest transportation option for your cargo. Whether you need next-flight-out service or cost-effective standard air freight, we provide reliable solutions with access to major airlines and cargo carriers worldwide.
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-neutral-800">Express Air Freight</h3>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Express Air Freight</h3>
                     <p className="text-neutral-600">
-                      Priority handling and accelerated transit times for time-critical shipments, with next-flight-out options available.
+                      Priority handling and accelerated transit times for time-critical shipments, with next-flight-out options available and same-day or next-day delivery guarantees.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neutral-800">Standard Air Freight</h3>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Standard Air Freight</h3>
                     <p className="text-neutral-600">
-                      Balanced solution offering reasonable transit times at competitive rates for less urgent cargo.
+                      Balanced solution offering reasonable transit times at competitive rates for less urgent cargo with flexible scheduling options.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neutral-800">Charter Services</h3>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Charter Services</h3>
                     <p className="text-neutral-600">
-                      Dedicated aircraft solutions for oversized, heavy, or project-specific cargo requirements.
+                      Dedicated aircraft solutions for oversized, heavy, or project-specific cargo requirements with complete control over routing and timing.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Temperature-Controlled Transport</h3>
+                    <p className="text-neutral-600">
+                      Specialized air cargo services for perishable goods, pharmaceuticals, and temperature-sensitive products with monitored environments.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" id="land-freight">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
                 <div className="flex items-center mb-4">
-                  <Truck className="h-8 w-8 text-primary mr-3" />
-                  <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800">Land Transportation</h2>
+                  <Truck className="h-8 w-8 text-blue-600 mr-3" />
+                  <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800">Road Transportation</h2>
                 </div>
                 <p className="text-neutral-600 mb-6">
-                  Our extensive land transportation network offers flexible and reliable shipping options for domestic and cross-border freight. We provide comprehensive road and rail services to meet your logistics needs.
+                  Our extensive road transportation network offers flexible and reliable shipping options for domestic and cross-border freight. We provide comprehensive trucking services with nationwide coverage and specialized equipment for various cargo types.
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-neutral-800">Road Freight</h3>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Full Truckload (FTL)</h3>
                     <p className="text-neutral-600">
-                      Full truckload (FTL), less than truckload (LTL), and expedited trucking services with nationwide coverage.
+                      Dedicated trucks for exclusive use, ideal for larger shipments requiring full vehicle capacity and faster transit times.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neutral-800">Rail Freight</h3>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Less Than Truckload (LTL)</h3>
                     <p className="text-neutral-600">
-                      Cost-effective and environmentally friendly option for long-distance bulk transportation across major corridors.
+                      Cost-effective solution for smaller shipments where you only pay for the space your cargo occupies, with consolidated shipping options.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-neutral-800">Specialized Transportation</h3>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Expedited Services</h3>
                     <p className="text-neutral-600">
-                      Temperature-controlled, hazardous materials, and oversized load transportation with appropriate equipment and permits.
+                      Priority handling and accelerated transit times for time-sensitive shipments with guaranteed delivery windows.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Specialized Transportation</h3>
+                    <p className="text-neutral-600">
+                      Temperature-controlled vehicles, hazardous materials handling, and oversized load transportation with appropriate equipment and permits.
                     </p>
                   </div>
                 </div>
-              </div>
-              <div className="rounded-lg overflow-hidden shadow-lg">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="rounded-lg overflow-hidden shadow-lg"
+              >
                 <img 
                   src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" 
-                  alt="Trucks and land transportation" 
+                  alt="Trucks and road transportation" 
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </motion.div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" id="rail-freight">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-2 lg:order-1 rounded-lg overflow-hidden shadow-lg"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?auto=format&fit=crop&w=800&q=80" 
+                  alt="Rail freight train" 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="order-1 lg:order-2"
+              >
+                <div className="flex items-center mb-4">
+                  <Train className="h-8 w-8 text-blue-600 mr-3" />
+                  <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800">Rail Freight</h2>
+                </div>
+                <p className="text-neutral-600 mb-6">
+                  Cost-effective and environmentally friendly rail freight solutions for long-distance bulk transportation. Ideal for heavy cargo, bulk commodities, and intermodal shipments across major rail corridors. Our rail services offer significant cost savings and reduced carbon footprint compared to road transport.
+                </p>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Intermodal Container Services</h3>
+                    <p className="text-neutral-600">
+                      Seamless container transport via rail with easy transfer to trucks for final delivery, combining the efficiency of rail with the flexibility of road transport.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Bulk Commodity Transport</h3>
+                    <p className="text-neutral-600">
+                      Specialized railcars for bulk materials including grains, coal, minerals, and other commodities requiring large-volume transport.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Heavy Machinery Handling</h3>
+                    <p className="text-neutral-600">
+                      Flatcars and specialized rail equipment for transporting oversized and heavy machinery, construction equipment, and industrial components.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Cross-Border Rail Connections</h3>
+                    <p className="text-neutral-600">
+                      Extensive network connecting major trade routes across borders, facilitating international rail freight with customs coordination.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-neutral-800 mb-1">Eco-Friendly Transportation</h3>
+                    <p className="text-neutral-600">
+                      Significantly lower carbon emissions per ton-mile compared to road transport, making rail an environmentally responsible choice for large shipments.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" id="customs-brokerage">

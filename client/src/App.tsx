@@ -8,6 +8,7 @@ import AboutPage from "@/pages/AboutPage";
 import ServicesPage from "@/pages/ServicesPage";
 import ContactPage from "@/pages/ContactPage";
 import QuotePage from "@/pages/QuotePage";
+import AdminPage from "@/pages/AdminPage";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -23,6 +24,7 @@ function Router() {
             <Route path="/services" component={ServicesPage} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/quote" component={QuotePage} />
+            <Route path="/admin-ufcspl" component={AdminPage} />
             <Route component={NotFound} />
           </Switch>
         </div>

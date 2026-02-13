@@ -4,6 +4,7 @@ import { z } from "zod";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { initEmailJs, sendQuoteRequestEmail } from "@/lib/emailService";
+import { saveQuery } from "@/lib/storage";
 import {
   Form,
   FormControl,
@@ -84,6 +85,21 @@ export default function QuoteSection() {
         details: data.additionalInfo || "No additional information provided"
       };
       
+      // Save query to localStorage
+      saveQuery({
+        type: 'quote',
+        data: {
+          fullName: data.fullName,
+          email: data.email,
+          phone: data.phone || "Not provided",
+          company: data.company || "Not provided",
+          shipmentType: data.shipmentType || "Not specified",
+          origin: data.origin || "Not specified",
+          destination: data.destination || "Not specified",
+          additionalInfo: data.additionalInfo || "No additional information provided"
+        }
+      });
+
       // Send email using our email service utility
       const response = await sendQuoteRequestEmail(templateParams);
       
@@ -109,12 +125,13 @@ export default function QuoteSection() {
   }
 
   return (
-    <section className="py-16 bg-[#002366] text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 bg-gradient-to-r from-blue-700 via-blue-600 to-sky-600 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-sky-500/20"></div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">Request a Free Quote Today</h2>
-            <p className="text-neutral-100">
+            <p className="text-blue-50">
               Fill out the form below to get a customized shipping quote tailored to your specific needs. Our team will respond within 24 hours.
             </p>
           </div>
@@ -283,13 +300,13 @@ export default function QuoteSection() {
                 />
               </div>
               
-              <Button 
-                type="submit" 
-                className="w-full bg-primary hover:bg-primary/80 text-white font-medium py-3"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting..." : "Submit Quote Request"}
-              </Button>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 text-white font-medium py-3 shadow-lg"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Submitting..." : "Submit Quote Request"}
+                    </Button>
             </form>
           </Form>
         </div>

@@ -4,6 +4,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import QuoteSection from "@/components/sections/QuoteSection";
 import CTASection from "@/components/sections/CTASection";
+import CertificationsSection from "@/components/sections/CertificationsSection";
 import { Helmet } from "react-helmet";
 
 export default function HomePage() {
@@ -18,6 +19,7 @@ export default function HomePage() {
         <HeroSection />
         <FeaturesSection />
         <ServicesSection />
+        <CertificationsSection />
         <TestimonialsSection />
         <QuoteSection />
         <CTASection />
