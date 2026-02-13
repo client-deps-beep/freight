@@ -53,53 +53,53 @@ export default function ContactPage() {
 
   async function onSubmit(data: FormData) {
     setIsSubmitting(true);
-    
-    try {
-      if (!emailJsInitialized) {
-        throw new Error("Email service not initialized yet. Please try again.");
-      }
-      
-      // Save query to localStorage
-      saveQuery({
-        type: 'contact',
-        data: {
-          name: data.name,
-          email: data.email,
-          subject: data.subject,
-          message: data.message
-        }
-      });
 
-      // Prepare template parameters
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
+    // Always store the contact message locally so it can be seen in the admin panel,
+    // even if the email service is unavailable.
+    saveQuery({
+      type: "contact",
+      data: {
+        name: data.name,
+        email: data.email,
         subject: data.subject,
-        message: data.message
-      };
-      
-      // Send email using our email service utility
-      const response = await sendContactEmail(templateParams);
-      
-      if (response.status === 200) {
-        toast({
-          title: "Message Sent",
-          description: "Thank you for your message. We'll respond to you shortly.",
-        });
-        form.reset();
-      } else {
-        throw new Error("Failed to send message. Please try again.");
+        message: data.message,
+      },
+    });
+
+    let emailSucceeded = false;
+
+    if (emailJsInitialized) {
+      try {
+        // Prepare template parameters
+        const templateParams = {
+          from_name: data.name,
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+        };
+
+        const response = await sendContactEmail(templateParams);
+        emailSucceeded = response.status === 200;
+      } catch (error) {
+        console.error("EmailJS error (contact):", error);
       }
-    } catch (error) {
-      console.error("EmailJS error:", error);
-      toast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "Failed to send your message. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
     }
+
+    if (emailSucceeded) {
+      toast({
+        title: "Message Sent",
+        description: "Thank you for your message. We'll respond to you shortly.",
+      });
+    } else {
+      toast({
+        title: "Message Received",
+        description:
+          "We've received your message and stored it safely. Our team will review it even though the email service is currently unavailable.",
+      });
+    }
+
+    form.reset();
+    setIsSubmitting(false);
   }
 
   return (

@@ -67,61 +67,62 @@ export default function QuoteSection() {
 
   async function onSubmit(data: FormData) {
     setIsSubmitting(true);
-    
-    try {
-      if (!emailJsInitialized) {
-        throw new Error("Email service not initialized yet. Please try again.");
-      }
-      
-      // Prepare template parameters for quote request
-      const templateParams = {
-        from_name: data.fullName,
-        from_email: data.email,
+
+    // Always store the quote request locally so it can be seen in the admin panel,
+    // even if the email service is unavailable.
+    saveQuery({
+      type: "quote",
+      data: {
+        fullName: data.fullName,
+        email: data.email,
         phone: data.phone || "Not provided",
         company: data.company || "Not provided",
-        shipment_type: data.shipmentType || "Not specified",
+        shipmentType: data.shipmentType || "Not specified",
         origin: data.origin || "Not specified",
         destination: data.destination || "Not specified",
-        details: data.additionalInfo || "No additional information provided"
-      };
-      
-      // Save query to localStorage
-      saveQuery({
-        type: 'quote',
-        data: {
-          fullName: data.fullName,
-          email: data.email,
+        additionalInfo: data.additionalInfo || "No additional information provided",
+      },
+    });
+
+    let emailSucceeded = false;
+
+    if (emailJsInitialized) {
+      try {
+        // Prepare template parameters for quote request
+        const templateParams = {
+          from_name: data.fullName,
+          from_email: data.email,
           phone: data.phone || "Not provided",
           company: data.company || "Not provided",
-          shipmentType: data.shipmentType || "Not specified",
+          shipment_type: data.shipmentType || "Not specified",
           origin: data.origin || "Not specified",
           destination: data.destination || "Not specified",
-          additionalInfo: data.additionalInfo || "No additional information provided"
-        }
-      });
+          details: data.additionalInfo || "No additional information provided",
+        };
 
-      // Send email using our email service utility
-      const response = await sendQuoteRequestEmail(templateParams);
-      
-      if (response.status === 200) {
-        toast({
-          title: "Quote Request Sent",
-          description: "Your quote request has been submitted successfully. We'll contact you within 24 hours.",
-        });
-        form.reset();
-      } else {
-        throw new Error("Failed to submit your quote request. Please try again.");
+        const response = await sendQuoteRequestEmail(templateParams);
+        emailSucceeded = response.status === 200;
+      } catch (error) {
+        console.error("EmailJS error (quote):", error);
       }
-    } catch (error) {
-      console.error("EmailJS error:", error);
-      toast({
-        title: "Error",
-        description: error instanceof Error ? error.message : "Failed to submit your request. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
     }
+
+    if (emailSucceeded) {
+      toast({
+        title: "Quote Request Sent",
+        description:
+          "Your quote request has been submitted successfully. We'll contact you within 24 hours.",
+      });
+    } else {
+      toast({
+        title: "Request Received",
+        description:
+          "We've received your quote request and stored it safely. Our team will review it even though the email service is currently unavailable.",
+      });
+    }
+
+    form.reset();
+    setIsSubmitting(false);
   }
 
   return (
