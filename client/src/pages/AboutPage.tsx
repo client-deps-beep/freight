@@ -16,7 +16,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-sky-500/20"></div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="max-w-3xl">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">About Ultimate Freight & Cargo</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">About Ultimate Freight & Cargo Shippers <span className="text-xl sm:text-2xl">Pvt. Ltd.</span> </h1>
               <p className="text-lg md:text-xl text-blue-50">
                 Your trusted partner in global logistics since 2005. We connect businesses to opportunities worldwide through innovative shipping solutions.
               </p>
@@ -115,15 +115,15 @@ export default function AboutPage() {
                   <p className="text-neutral-600">Logistics Hubs</p>
                 </div>
                 
-                <div className="text-center">
+                {/* <div className="text-center">
                   <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-sky-600 bg-clip-text text-transparent mb-2">5,000+</div>
                   <p className="text-neutral-600">Employees Worldwide</p>
-                </div>
+                </div> */}
                 
-                <div className="text-center">
+                {/* <div className="text-center">
                   <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-sky-600 bg-clip-text text-transparent mb-2">10M+</div>
                   <p className="text-neutral-600">Shipments Annually</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

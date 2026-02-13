@@ -73,7 +73,7 @@ export const services = [
     eleid:"rail-freight",
     title: "Rail Freight",
     description: "Cost-effective and environmentally friendly rail freight solutions for long-distance bulk transportation. Ideal for heavy cargo, bulk commodities, and intermodal shipments across major rail corridors. Our rail services offer significant cost savings and reduced carbon footprint compared to road transport.",
-    imageUrl: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/railFreight.png",
     features: [
       "Intermodal container services",
       "Bulk commodity transport",

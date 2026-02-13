@@ -5,15 +5,15 @@ import { Card, CardContent } from "@/components/ui/card";
 const certifications = [
   {
     id: 1,
-    name: "ISO 9001:2015",
-    description: "Quality Management System Certification",
+    name: "MTO Licensed",
+    description: "Multimodal Transport Operator",
     icon: Award,
     color: "from-blue-500 to-sky-500",
   },
   {
     id: 2,
-    name: "C-TPAT Certified",
-    description: "Customs-Trade Partnership Against Terrorism",
+    name: "WCA Member",
+    description: "World Cargo Alliance Global Network Verified",
     icon: Shield,
     color: "from-blue-600 to-indigo-600",
   },
@@ -26,8 +26,8 @@ const certifications = [
   },
   {
     id: 4,
-    name: "FMC Licensed",
-    description: "Federal Maritime Commission License",
+    name: "JCtrans GCP Member",
+    description: "Global Credit Pass Member\nVerified Logistics Provider\nFinancial & Operational Security Guaranteed",
     icon: CheckCircle,
     color: "from-indigo-500 to-blue-600",
   },
@@ -38,13 +38,7 @@ const certifications = [
     icon: Shield,
     color: "from-blue-500 to-sky-600",
   },
-  {
-    id: 6,
-    name: "GDP Compliant",
-    description: "Good Distribution Practice Compliance",
-    icon: CheckCircle,
-    color: "from-sky-600 to-indigo-500",
-  },
+  
 ];
 
 export default function CertificationsSection() {
