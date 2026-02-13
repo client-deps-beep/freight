@@ -276,9 +276,7 @@ import themePlugin from "@replit/vite-plugin-shadcn-theme-json";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 var vite_config_default = defineConfig({
-  // Use "/" in dev so the app runs at the root,
-  // and "/freight/" in production (e.g. GitHub Pages project path).
-  base: process.env.NODE_ENV === "production" ? "/freight/" : "/",
+  base: "/",
   plugins: [
     react(),
     runtimeErrorOverlay(),

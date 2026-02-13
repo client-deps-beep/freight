@@ -228,7 +228,7 @@ export default function ServicesPage() {
                 className="order-2 lg:order-1 rounded-lg overflow-hidden shadow-lg"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?auto=format&fit=crop&w=800&q=80" 
+                  src="/railFreight.png" 
                   alt="Rail freight train" 
                   className="w-full h-full object-cover"
                 />
