@@ -12,7 +12,7 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>Ultimate Freight and Cargo Shippers - Worldwide Logistics Solutions</title>
-        <meta name="description" content="From local deliveries to international shipping, Ultimate Freight and Cargo connects your business to the world with reliable, efficient, and cost-effective solutions." />
+        <meta name="description" content="From local deliveries to international shipping, Ultimate Freight and Cargo Shippers connect your business to the world with reliable, efficient, and cost-effective solutions." />
       </Helmet>
       
       <main>

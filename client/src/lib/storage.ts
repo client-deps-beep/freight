@@ -1,5 +1,7 @@
 // Frontend-only storage utilities using localStorage
 
+import { sendQueryToRemote } from "./remoteStorage";
+
 export interface QueryRecord {
   id: string;
   type: 'contact' | 'quote' | 'price_calculation';
@@ -80,6 +82,10 @@ export function saveQuery(query: Omit<QueryRecord, 'id' | 'timestamp'>): void {
     };
     queries.push(newQuery);
     localStorage.setItem(STORAGE_KEYS.QUERIES, JSON.stringify(queries));
+
+    // Also try to push this query to a remote endpoint (e.g. Google Sheets backend)
+    // so data can be viewed globally. This is fire-and-forget; failures are only logged.
+    void sendQueryToRemote(newQuery);
   } catch (error) {
     console.error('Error saving query to storage:', error);
   }

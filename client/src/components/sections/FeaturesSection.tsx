@@ -12,7 +12,7 @@ export default function FeaturesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            <span className="text-gradient-blend">Why Choose</span> Ultimate Freight & Cargo
+            <span className="text-gradient-blend">Why Choose</span> Ultimate Freight & Cargo Shippers
           </h2>
           <p className="max-w-3xl mx-auto text-neutral-600 text-lg">
             We combine industry expertise, global network, and cutting-edge technology to deliver exceptional shipping and logistics services.
