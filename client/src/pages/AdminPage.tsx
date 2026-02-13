@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useToast } from "@/hooks/use-toast";
-import { getAllQueries, getPricingConfig, setPricingConfig, PricingConfig, QueryRecord } from "@/lib/storage";
+import { getAllQueries,getRemoteQueries, getPricingConfig, setPricingConfig, PricingConfig, QueryRecord } from "@/lib/storage";
+
 import { exportToExcel, loadXLSXLibrary } from "@/lib/excelExport";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Download, Settings, Eye, EyeOff, Save } from "lucide-react";
+import { Download,RefreshCw, Settings, Eye, EyeOff, Save } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AdminPage() {
@@ -19,7 +20,7 @@ export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+const [isSyncing, setIsSyncing] = useState(false);
   // Simple password protection (in production, use proper auth)
   const ADMIN_PASSWORD = "UltimateAdmin123"; // Change this in production
 
@@ -32,12 +33,31 @@ export default function AdminPage() {
     }
   }, []);
 
-  const loadData = () => {
-    const allQueries = getAllQueries();
-    setQueries(allQueries);
+  const loadData = async () => {
+  setIsSyncing(true);
+  try {
+    // Call the newly completed function
+    const data = await getRemoteQueries();
+    setQueries(data);
+    
+    // Still pull pricing from local (since that's admin-specific)
     const config = getPricingConfig();
     setPricingConfigState(config);
-  };
+    
+    toast({
+      title: "Sync Complete",
+      description: `Loaded ${data.length} total queries from Cloud & Local storage.`,
+    });
+  } catch (error) {
+    toast({
+      title: "Sync Warning",
+      description: "Could not reach the cloud. Showing local data only.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSyncing(false);
+  }
+};
 
   const handleLogin = () => {
     if (password === ADMIN_PASSWORD) {
@@ -251,6 +271,16 @@ export default function AdminPage() {
                         View all contact messages, quote requests, and price calculations
                       </CardDescription>
                     </div>
+                    <Button
+    variant="outline"
+    onClick={loadData}
+    disabled={isSyncing}
+    className="border-blue-300 text-blue-700"
+  >
+    <RefreshCw className={`h-4 w-4 mr-2 ${isSyncing ? "animate-spin" : ""}`} />
+    {isSyncing ? "Syncing..." : "Sync Cloud Data"}
+  </Button>
+
                     <Button
                       onClick={handleExportExcel}
                       disabled={queries.length === 0 || isLoading}

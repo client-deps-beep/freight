@@ -7,7 +7,7 @@ export async function sendQueryToRemote(query: QueryRecord): Promise<void> {
     // Prefer env variable; fall back to the hard-coded URL only if present.
     const url =
       import.meta.env?.VITE_REMOTE_QUERIES_ENDPOINT ||
-      "https://script.google.com/macros/s/AKfycbzlg_pH_6eiWbWO5PTfRpytZYRcM6ueLaoRZ3d14gkSASGOtZkQuS4MIN-RPIyu-YQk/exec";
+      "https://script.google.com/macros/s/AKfycbwBytEFes2_W42skE19kdfFawFu2mOxSebD5xx7sVSM9gzIL6RRk2NOnm6IHnX6JBQ/exec";
 
     if (!url) {
       return;
@@ -25,6 +25,21 @@ export async function sendQueryToRemote(query: QueryRecord): Promise<void> {
     });
   } catch (error) {
     console.error("Failed to send query to remote endpoint:", error);
+  }
+}
+
+export async function fetchRemoteQueries(): Promise<QueryRecord[]> {
+  const url = import.meta.env?.VITE_REMOTE_QUERIES_ENDPOINT || 
+              "https://script.google.com/macros/s/AKfycbwBytEFes2_W42skE19kdfFawFu2mOxSebD5xx7sVSM9gzIL6RRk2NOnm6IHnX6JBQ/exec";
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Network response was not ok");
+    const data = await response.json();
+    return data as QueryRecord[];
+  } catch (error) {
+    console.error("Failed to fetch remote queries:", error);
+    return [];
   }
 }
 

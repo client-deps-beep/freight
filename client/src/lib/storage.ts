@@ -1,6 +1,6 @@
 // Frontend-only storage utilities using localStorage
 
-import { sendQueryToRemote } from "./remoteStorage";
+import { sendQueryToRemote, fetchRemoteQueries } from "./remoteStorage";
 
 export interface QueryRecord {
   id: string;
@@ -88,6 +88,37 @@ export function saveQuery(query: Omit<QueryRecord, 'id' | 'timestamp'>): void {
     void sendQueryToRemote(newQuery);
   } catch (error) {
     console.error('Error saving query to storage:', error);
+  }
+}
+
+export async function getRemoteQueries(): Promise<QueryRecord[]> {
+  try {
+    // 1. Fetch data from your remote script
+    const remoteData = await fetchRemoteQueries();
+    
+    // 2. Get your local data
+    const localData = getAllQueries();
+    
+    // 3. Merge them and remove duplicates by ID
+    const combined = [...localData, ...remoteData];
+    const uniqueMap = new Map<string, QueryRecord>();
+    
+    combined.forEach(item => {
+      if (item && item.id) {
+        uniqueMap.set(item.id, item);
+      }
+    });
+
+    const finalResult = Array.from(uniqueMap.values());
+
+    // 4. Sort by date (newest first)
+    return finalResult.sort((a, b) => 
+      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    );
+  } catch (error) {
+    console.error("Failed to sync remote queries:", error);
+    // Return local data as a fallback so the UI doesn't crash
+    return getAllQueries();
   }
 }
 
