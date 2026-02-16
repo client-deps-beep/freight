@@ -31,13 +31,13 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-neutral-800 mb-6">Our Story</h2>
                 <p className="text-neutral-600 mb-4">
-                  Ultimate Freight & Cargo was founded in 2005 with a simple mission: to make global shipping accessible, reliable, and efficient for businesses of all sizes.
+                  Ultimate Freight & Cargo was founded in 2015, but our roots in global logistics stretch back to 2005.
                 </p>
                 <p className="text-neutral-600 mb-4">
-                  What began as a small operation with just three employees and a single warehouse has grown into a global logistics company with presence in over 120 countries, a fleet of modern vehicles, and partnerships with leading carriers worldwide.
+                 What began as a small operation has grown into a trusted global logistics partner, with presence in over 120 countries, a modern fleet, and partnerships with leading carriers worldwide.
                 </p>
                 <p className="text-neutral-600">
-                  Throughout our journey, we've maintained our core values of reliability, transparency, and customer-first approach, which have earned us the trust of thousands of businesses globally.
+                  We're proud of our heritage and the relationships we've built, guided by our core values of reliability, transparency, and a customer-first approach that has earned us the trust of thousands of businesses globally.
                 </p>
               </div>
               <div className="rounded-lg overflow-hidden shadow-lg">
@@ -104,7 +104,7 @@ export default function AboutPage() {
             </div>
             
             <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
                 <div className="text-center">
                   <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-sky-600 bg-clip-text text-transparent mb-2">120+</div>
                   <p className="text-neutral-600">Countries Served</p>
